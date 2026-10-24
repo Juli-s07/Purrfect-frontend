@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог котів</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Каталог котів</h1>
+    <nav class="tabs">
+      <button class="tab active" data-view="cats">Коти</button>
+      <button class="tab" data-view="breeders">Заводчики</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Вигляд 1: каталог котів -->
+    <section id="view-cats">
+      <div class="filters">
+        <select id="filter-breed" aria-label="Порода">
+          <option value="">Усі породи</option>
+        </select>
+        <select id="filter-status" aria-label="Статус">
+          <option value="">Будь-який статус</option>
+          <option value="available">Доступний</option>
+          <option value="reserved">Зарезервований</option>
+          <option value="sold">Проданий</option>
+        </select>
+        <input id="filter-search" type="search" placeholder="Пошук за іменем">
+        <button id="filter-apply">Показати</button>
+      </div>
+      <p id="cats-message" class="message">Завантаження...</p>
+      <div id="cats" class="grid"></div>
+    </section>
+
+    <!-- Вигляд 2: заводчики -->
+    <section id="view-breeders" hidden>
+      <p id="breeders-message" class="message">Завантаження...</p>
+      <div id="breeders" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- Деталі кота (відкривається по кліку на картку) -->
+  <dialog id="cat-dialog">
+    <button id="dialog-close" class="close" aria-label="Закрити">×</button>
+    <div id="cat-details"></div>
+  </dialog>
+
+  <!-- Деталі заводчика з його котами (відкривається по кліку на картку) -->
+  <dialog id="breeder-dialog" class="wide">
+    <button id="breeder-dialog-close" class="close" aria-label="Закрити">×</button>
+    <div id="breeder-details"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
